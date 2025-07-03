@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmls:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Error</h1>
+	<p>there is a problem</p>
+	<a th:href="@{/}">home</a>
+	<p th:text="'error code'+${status}"></p>
+	<p th:text="'error message'+ ${error}"></p>
+</body>
+</html>

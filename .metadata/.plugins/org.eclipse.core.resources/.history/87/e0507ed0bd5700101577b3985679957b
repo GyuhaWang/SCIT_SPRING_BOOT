@@ -1,0 +1,14 @@
+package net.dsa.web3.controller;
+
+import org.springframework.stereotype.Controller;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import net.dsa.web3.repository.MemberRepository;
+
+@Controller
+@Slf4j
+@RequiredArgsConstructor
+public class MemberController {
+
+}

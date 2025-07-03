@@ -1,0 +1,5 @@
+window.onload  = function() {
+	const updateButton = document.querySelector("#update_button");
+	const deleteButton = document.querySelector("#delete_button");
+	
+}

@@ -1,0 +1,5 @@
+package net.dsa.web3.dto;
+
+public class MemberDTO {
+
+}

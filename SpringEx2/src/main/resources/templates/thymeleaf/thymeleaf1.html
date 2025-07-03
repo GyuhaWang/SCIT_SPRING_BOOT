@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h4>value result</h4>
+<p>[[${str}]]</p>
+<hr>
+<p th:text="${str}">test</p>
+<!-- #은 객체를 의미함 --> 
+<p th:text="${#strings.defaultString(str1,'test String')}">test</p>
+<p>
+	<input type="text" th:value="${str}">
+</p>
+<p>
+	<span th:text="${num}">000</span>원
+</p>
+<hr>
+<h4>태그 출력</h4>
+<p th:text="${tag}"></p>
+<p th:utext="${tag}"></p>
+
+<hr/>
+
+<h4>* 연산자</h4>
+<p>[[${num gt 0}]]</p> <!-- gt greater then (>) -->
+<p th:text="${num}"></p>
+<!-- 산술 연산자 -->
+<p th:text="${num +1}"></p>
+<!-- 비교 연산자 : < > <= >= == != , lt gt le ge eq ne (이렇게 써야만 하는 경우가 있음) -->
+<p th:text="${num > 1}"></p>
+<p th:text="${num gt 1}"></p>
+<!-- 논리 연산자 -->
+<p th:text="${num ge 1 and num le 100}"></p>
+<hr>
+<h4>경로 생성과 하이퍼 링크</h4>
+<p> <a href="https://naver.com"
+	th:href="'https://nate.com'"
+	></a></p>
+<p><a href = "${url}" th:href="${url}"></a></p>
+<p>정대경로 생성:[[@{/param/view1}]]</p>
+<p><a th:href="@{/param/view1}">페이지 이동</a></p>
+<hr>
+<h4>이미지 출력</h4>
+<p><img src="" th:src="@{/image/ccc.jpg}" alt="이미지"></p>
+
+<hr>
+<h4>객체 출력</h4>
+	<ul th:object="${person}">
+		<li th:text="*{name}">이름</li>
+		<li th:text="${person.phone}">핸드폰</li>
+	</ul>
+<hr>
+<h4>변수 출력</h4>
+<p th:text="${inum}"></p>
+<p th:text="${dnum}"></p>
+<p th:text="${dnum2}"></p>
+<p th:text="${date}"></p>
+<hr>
+<h4>num formatting</h4>
+<p th:text="${#numbers.formatInteger(inum,10)}"></p>
+<p th:text="${#numbers.formatInteger(inum,3,'COMMA')}"></p>
+<p th:text="${#numbers.formatDecimal(dnum, 3,'COMMA',2,'POINT')}"></p>
+<p th:text="${#numbers.formatPercent(dnum2,0,0)}"></p>
+<p th:text="${#numbers.formatPercent(100000.555,10,1)}"></p>
+<hr>
+<h4>날짜 포멧팅</h4>
+<p th:text="${#dates.format(date,'yyyy/MM/dd HH:mm')}"></p>
+<p th:text="${#dates.format(date,'yyyy/MMM/dd hh:mm')}"></p>
+<p th:text="${str + 'abcd'}"></p>
+<p th:text="|${str} s s dsad dasd|"></p>
+<p th:text="str + 'abcd'"></p>
+
+<h4>문자열 함수</h4>
+<p th:text="${#strings.isEmpty(str)}">문자열 출력</p>
+<p th:text="${#strings.substring(str,1,2)}">문자열 출력</p>
+<p th:text="${values}">문자열 출력</p>
+<p th:text="${#strings.listSplit(values,',')}"></p>
+<p th:text="${#strings.listSplit(values,',')[0]}"></p>
+<hr>
+<h4>condition</h4>
+<!-- if -->
+<div th:if="${str.equals('문자열')}">true 이면 보이는 부분</div>
+<div th:if="${not str.equals('문자열')}">false 이면 보이는 부분</div>
+<div th:if="${str =='문자열'}">true 이면 보이는 부분</div>
+<!-- unless문 -->
+<div th:unless="${str =='문자열'}">unless - true</div>
+<div th:unless="${str =='문자열' ? 'false' : 'true'}">unless - false</div>
+<hr>
+<div th:switch="${num}">
+	<p th:case="100"> num은 100</p>
+	<p th:case="200"> num은 200</p>
+	<p th:case="*"> num은 몰라</p>
+</div>
+
+</body>
+</html>

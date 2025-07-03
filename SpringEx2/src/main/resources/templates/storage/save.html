@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+	function save(){
+		let codeLocalValue = document.querySelector('#codeLocal').value;
+		let codeSessionValue =document.querySelector('#codeSession').value;
+		
+		console.log(codeLocalValue,codeSessionValue);
+		
+		window.sessionStorage.setItem('code',codeSessionValue);
+		window.localStorage.setItem('code',codeLocalValue);
+		
+		location.href = '/web2';
+	}
+	</script>
+</head>
+<body>
+<h1>localStorage , Session Stoarge save</h1>
+<div>
+	<p>localStorage<input type="text" id="codeLocal"></p> 
+		<p>sessionStorage<input type="text" id="codeSession"></p> 
+			<p><input type="button" onClick="save()" value="save"></p> 
+</div>
+</body>
+</html>

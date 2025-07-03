@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* 상단 메뉴 스타일 */
+header {
+  background-color: black;
+  padding: 10px 20px;
+  display: flex;
+  justify-content:space-between;
+  gap: 20px;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+.header_section{
+	display:flex;
+	gap:12px;
+}
+
+.header_button {
+	color:white;
+	padding:0;
+	margin:0;
+}

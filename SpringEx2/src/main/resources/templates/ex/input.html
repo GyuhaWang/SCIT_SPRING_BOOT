@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmls:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>개인정보 입력</h1>
+<form action="info"  method="post" th:object="${human}">
+	
+		<div th:if="${#fields.hasGlobalErrors()}">
+		<p th:each="err :${#fields.globalErrors()}"
+		th:text="${err}" class="error"
+	>
+	</p>
+		</div>
+		
+		<div class="form-group">
+		<label for="name">이름</label>
+		<input type="text" id="name" th:field="*{name}">
+		<span th:errors="*{name}" class="error"></span>
+	</div>
+	<div class="form-group">
+		<label for="cid">주민번호</label>
+		<input type="text" id="cid" th:field="*{cid}">
+		<span th:errors="*{cid}" class="error"></span>
+	</div>
+	<input type="submit" value="출력">
+	
+</form>
+</body>
+</html>

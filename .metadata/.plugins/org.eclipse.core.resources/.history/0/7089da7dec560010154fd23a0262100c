@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>update user info</title>
+<style>
+	th:{text-align:left}
+</style>
+<script>
+	const check= function(){
+		console.log("check")
+	}
+</script>
+</head>
+<body>
+	<h2>update user info</h2>
+	<form th:action="@{/member/update}" method="post">
+	<table>
+		<tr>
+			<th>ID</th>
+			<td>
+			<input type="text" name="id" id="id" value="${user.id}" >
+			</td>
+		</tr>
+			<tr>
+			<th>PW</th>
+			<td>
+			<input type="password" name="pw" id="pw" >
+			</td>
+		</tr>
+			<tr>
+			<th>NAME</th>
+			<td>
+			<input type="text" name="name" id="name">
+			</td>
+		</tr>
+			<tr>
+			<th>Address</th>
+			<td>
+			<input type="text" name="address" id="address" >
+			</td>
+		</tr>
+			<tr>
+			<th>phone</th>
+			<td>
+			<input type="text" name="phone" id="phone">
+			</td>
+		</tr>
+		<tr>
+			
+			<td>
+			<input type="submit" value="update">
+			</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

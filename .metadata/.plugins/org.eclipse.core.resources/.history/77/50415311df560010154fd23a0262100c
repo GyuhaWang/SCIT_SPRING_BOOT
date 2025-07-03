@@ -1,0 +1,20 @@
+<html xmlns:th="http://thymeleaf.org">
+<body>
+	<header th:fragment="header">
+		<div class="header_section">
+			<a th:href="@{/}" class="header_button">home</a>
+		</div>
+	
+		<div class="header_section">
+			<a th:if="${session.user_session == null}" 
+		   th:href="@{/member/join}"  class="header_button">signin</a>
+			<a th:if="${session.user_session == null}" 
+		   th:href="@{/member/login}"  class="header_button">login</a>
+			<p th:if="${session.user_session != null}"
+		   th:text="|${session.user_session.name}님 환영합니다.|" class="header_button"></p>
+			<a th:if="${session.user_session != null}" 
+		   th:href="@{/member/logout}"  class="header_button">logout</a>
+		</div>
+	</header>
+</body>
+</html>

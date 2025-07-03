@@ -1,0 +1,6 @@
+spring.application.name=SpringEx3
+server.port=9993
+server.servlet.context-path=/web3
+
+logging.level.root=info
+logging.level.net.dsa.ex2=debug

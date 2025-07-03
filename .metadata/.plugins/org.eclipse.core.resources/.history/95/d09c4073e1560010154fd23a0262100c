@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>users</title>
+</head>
+<body>
+<h1>All user Info</h1>
+</body>
+</html>

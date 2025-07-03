@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>회원목록</title>
+<link rel="stylesheet" href="/ex2/css/header.css">
+<style>
+	body{
+	margin :auto;
+	}
+	section{
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	}
+	
+	section>h2 {
+	text-align : center;
+	}
+	
+	.no_user{
+	text-align:center;
+	}
+	
+	table {
+	margin-bottom : 10px;
+	}
+	
+	table, td {
+	border : 1px solid black;
+	border-collapse:collapse;
+	}
+	
+	td{
+	width:100px;
+	height:80px;
+	text-align:center;
+	}
+</style>
+</head>
+<body>
+<div th:replace="~{layout/header :: header}"></div>
+<section>
+<h2>회원 목록</h2>
+<p th:if="${members.size() <= 0}" class="no_user">회원이 없습니다.</p>
+<table th:if="${members.size() > 0}">
+<tr>
+		<td>
+			<span>아이디</span>
+		</td>
+		<td>
+				<span>비밀번호</span>
+		</td>
+		<td>
+				<span>이름</span>
+		</td>
+		<td>
+				<span>전화번호</span>
+		</td>
+		</tr>
+		<tr  th:each="member, i : ${members}">
+		<td>
+			<span th:text="${member.id}"></span>
+		</td>
+		<td>
+			<span th:text="${member.pw}"></span>
+		</td>
+		<td>
+			<span th:text="${member.name}"></span>
+		</td>
+		<td>
+			<span th:text="${member.phone}"></span>
+		</td>
+		</tr>
+	</table>
+	</section>
+	
+	
+
+</body>
+</html>

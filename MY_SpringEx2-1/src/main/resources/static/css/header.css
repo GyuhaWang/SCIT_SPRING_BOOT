@@ -1,0 +1,17 @@
+@charset "UTF-8";
+body {
+	margin:0;
+	padding:0;'
+}
+header {
+	background-color :blue;
+	display:flex;
+	gap :12px
+}
+
+header > a {
+	color:white;
+	 text-decoration: none;
+	 font-weight:bold;
+	 padding:10px;
+}

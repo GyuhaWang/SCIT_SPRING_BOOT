@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>inquiry</title>
+    <link rel="stylesheet" href="/ex1/css/menu.css" />
+    <link rel="stylesheet" href="/ex1/css/inquiry.css" />
+  </head>
+  <body>
+  
+  
+    <header>
+      <a href="/ex1">홈</a>
+      <a href="introduce">소개</a>
+      <a href="notice">공지</a>
+      <a href="inquiry">문의</a>
+    </header>
+    <main>
+      <h1>문의</h1>
+      <p>js 적용할 것</p>
+
+      <form action="" method="post" onsubmit="formCheck" class="inquiry-form">
+      	<div class="form-field">
+      	   <div class="form-input">
+          <label for="name">이름</label>
+          <input name="name" type="text" class="required-inputs" />
+        </div>
+        <div class="form-input">
+          <label for="email">email</label>
+          <input name="email" type="email" required class="required-inputs" />
+        </div>
+        <div class="form-input">
+          <label for="content">contents</label>
+          <textarea name="content"  class="required-inputs"></textarea>
+        </div>
+      	</div>
+        <button type="submit" class="submit-button" id="inquiry_submit_button">제출</button>
+      </form>
+    </main>
+        <script src="js/inquiry.js" ></script>
+  </body>
+</html>

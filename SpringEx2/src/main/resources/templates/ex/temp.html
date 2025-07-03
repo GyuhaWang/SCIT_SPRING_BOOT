@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function() {
+		const prevName = sessionStorage.getItem('id');
+		const prevMessage =sessionStorage.getItem('message');
+		
+		const nameInput = document.querySelector('#name');
+		const messageInput = document.querySelector("#message");
+		const inputForm = document.querySelector("#input_form");
+		
+		if(prevName){
+			
+			nameInput.value = prevName;
+		}
+		
+		if(prevMessage){
+			
+			messageInput.value = prevMessage;
+		}
+		
+		nameInput.addEventListener('input', function(event) {
+			  sessionStorage.setItem("id",event.target.value);
+		});
+		messageInput.addEventListener('input', function(event) {
+			  sessionStorage.setItem("message",event.target.value);
+		});
+		inputForm.addEventListener ('submit',function(){
+			sessionStorage.clear();
+			
+		})
+		
+	}
+</script>
+</head>
+<body>
+	<h1> 문의하기</h1>
+	
+	<form id="input_form">
+		name: <input type ="text" id="name"><br/>
+		message: <input type ="text" id="message"><br/>
+		<button type="submit" id="submit_btn">send</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+	margin-bottom : 10px;
+	margin: auto;
+	}
+	
+	table, td {
+	border : 1px solid black;
+	border-collapse:collapse;
+	padding : 12px 24px;
+	text-align: center;
+	
+	}
+	
+	thead {
+	background-color:#ebebeb;
+	font-weight:bold;
+	}
+	caption > h1 {
+	text-align:start;
+	}
+	
+	.fail {
+	color : red;
+
+	}
+	
+	.pass{
+	color:green;
+	}
+	
+	
+</style>
+</head>
+<body>
+	
+	<table>
+	<caption><h1>[학생 목록]</h1></caption>
+	<thead>
+		<tr>
+		<td>번호</td>
+		<td>이름</td>
+		<td>나이</td>
+		<td>전화번호</td>
+		<td>성적</td>
+		</tr>
+	</thead>
+	<tbody>	
+		<tr th:each="s ,i  : ${list}">
+		<td th:text="${i.index +1}">번호</td>
+		<td th:text="${s.name}" >이름</td>
+		<td th:text="${s.age}">나이</td>
+		<td th:text="${s.phone}">전화번호</td>
+		<td th:text="${s.grade}"
+    	th:classappend="${s.grade != null and s.grade >= 60} ? 'pass' : 'fail'">
+    	성적
+		</td>
+		</tr>
+	</tbody>
+	</table>
+</body>
+</html>

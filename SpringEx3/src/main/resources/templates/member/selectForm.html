@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="thymelaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>[검색]</h1>
+	<form th:action="@{select}" method="post">
+		검색할 ID <input type="text" name="id" required="required">
+		<input type="submit" value="검색">
+	</form>
+	<p th:if="${error != null}" th:text="|${id} : ${error}|"></p>
+	<ul th:if="${member != null}">
+	<li th:text="|ID: ${member.id}|"></li>
+	<li th:text="|NAME: ${member.name}|"></li>
+	<li th:text="|PHONE: ${member.phone}|"></li>
+	</ul>
+	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>회원가입</h1>
+<form th:action="@{/member/join}" method="post">
+	<table>
+		<tr>
+			<th>ID</th>
+			<td>
+			<input type="text" name="id" id="id" placeholder="id">
+			</td>
+		</tr>
+			<tr>
+			<th>PW</th>
+			<td>
+			<input type="password" name="password" id="password" placeholder="password">
+			</td>
+		</tr>
+			<tr>
+			<th>NAME</th>
+			<td>
+			<input type="text" name="name" id="name" placeholder="name">
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

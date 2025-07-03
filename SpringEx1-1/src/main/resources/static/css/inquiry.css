@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.inquiry-form{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	background-color:lightGray;
+	padding:20px;
+	border-radius:14px;
+	border:solid 1px lightGray;
+	gap:40px
+}
+.form-field{
+display:flex;
+	flex-direction:column;	
+	gap:12px
+}
+.form-input{
+	display:flex;
+	flex-direction:column;
+	gap:2px
+}
+
+.form-input>label {
+	font-weight:bold
+}
+.form-input>input {
+	padding:12px 6px;
+	border-radius:8px;
+	border:solid 1px lightGray;
+}
+.form-input>textarea {
+	padding:12px 6px;
+	border-radius:8px;
+	border:solid 1px lightGray;
+}
+
+.submit-button{
+	width:fit-content;
+	padding:8px 16px;
+	background-color:black;
+	color:white;
+	border-radius:4px;
+	border:none;
+	transition: all 0.5s
+}
+.submit-button:hover{
+	scale:0.9
+}

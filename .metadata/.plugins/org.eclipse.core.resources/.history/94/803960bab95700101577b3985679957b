@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>users</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link rel="stylesheet" th:href="@{/css/member_read.css}">
+<style type="text/css">
+ body {
+ margin:0;
+ padding : 0;
+ }
+</style>
+<script th:src="@{/js/read.js}"></script>
+<script>
+	function deleteFunc(param){
+		console.log(param);
+		let result = confirm(`${param}을 삭제하시겠습니까?`);
+		if(result){
+			location.href=`delete?id=${param}`;
+		}
+	}
+</script>
+</head>
+<body>
+<div th:replace="~{layout/header :: header}"></div>
+
+
+	<section>
+	<h1>users Info</h1>
+		<table>
+			<tr>
+				<th>
+				NO.
+				</th>
+				<th>
+				id
+				</th>
+				<th>
+				name
+				</th>
+				<th>
+				phone
+				</th>
+				<th>
+				address
+				</th>
+				<th>
+				
+				</th>
+			</tr>
+			<tr th:each="member,index : ${members}">
+				<td th:text="${index.index}">
+				NO.
+				</td>
+				<td th:text="${member.id}">
+				id
+				</td>
+				<td th:text="${member.name}">
+				name
+				</td>
+				<td th:text="${member.phone}">
+				phone
+				</td>
+				<td th:text="${member.address}">
+				address
+				</td>
+				<td class="state_change_td">
+					<!--  <button  class="event_button update_button" id="update_button">update</button>-->
+					<!-- queryString 방식  "@{path(param1=${value},param2=${value}}-->
+					<a th:href="@{/member/delete(id=${member.id})}" th:text="삭제"></a>
+					
+					<!-- js 방식  사용자 정의 데이터를 추가할 때 data-속성을 사용-->
+					<input type="button" value="delete" id="btn"
+					th:attr="data-tid=${member.id}"
+					th:onclick="deleteFunc(this.getAttribute('data-tid'))"
+					>
+				</td>
+				
+			</tr>
+			
+		</table>
+	</section>
+</body>
+</html>

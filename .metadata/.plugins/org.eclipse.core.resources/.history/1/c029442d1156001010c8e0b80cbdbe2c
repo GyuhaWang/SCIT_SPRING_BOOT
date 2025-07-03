@@ -1,0 +1,14 @@
+package net.dsa.web3.service;
+
+
+public interface MemberService {
+
+	void insertData();
+
+	void selectDate();
+	
+	/*
+	 * BasicController
+	 * */
+	
+}

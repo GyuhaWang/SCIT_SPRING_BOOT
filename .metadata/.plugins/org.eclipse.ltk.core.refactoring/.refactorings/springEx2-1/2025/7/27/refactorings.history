@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;member_read.css&apos; to &apos;SpringEx3/src/main/resources/templates.member&apos;&#x0D;&#x0A;- Original project: &apos;springEx2-1&apos;&#x0D;&#x0A;- Destination element: &apos;SpringEx3/src/main/resources/templates.member&apos;&#x0D;&#x0A;- Original element: &apos;member_read.css&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="=SpringEx3/src\/main\/resources=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;templates.member" element1="src/main/resources/static/css/member_read.css" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1751419532076" units="0" version="1.0"/>
+</session>

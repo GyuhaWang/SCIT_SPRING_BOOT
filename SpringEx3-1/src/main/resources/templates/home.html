@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>home</title>
+</head>
+<body>
+	<h1>welcome</h1>
+	<ul>
+		<li>
+			<a th:href="@{member/signin}">signin</a>
+		</li>
+		<li>
+			<a th:href="@{member/login}">login</a>
+		</li>
+		<li>
+			<a th:href="@{member/logout}">logout</a>
+		</li>
+		<li>
+			<a th:href="@{member/update}">update</a>
+		</li>
+		<li>
+			<a th:href="@{member/read}">read</a>
+		</li>
+	</ul>
+</body>
+</html>

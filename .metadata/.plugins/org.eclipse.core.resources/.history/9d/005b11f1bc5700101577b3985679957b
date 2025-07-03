@@ -1,0 +1,30 @@
+package net.dsa.web3dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class MemberDTO {
+	
+	private String id;
+	private String pw;
+	private String name;
+	private String address;
+	private String phone;
+	
+	public void entitity_to_dto(MemberEntity entity, MemberDTO dto) {
+		
+	}
+	
+	public void dto_to_entity(MemberEntity entity, MemberDTO dto) {
+		
+	}
+	
+}

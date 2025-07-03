@@ -1,0 +1,26 @@
+package net.dsa.web3.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import net.dsa.web3.service.MemberService;
+
+@Controller
+@Slf4j
+@RequiredArgsConstructor
+@RequestMapping("member")
+public class MemberController {
+	
+	private final MemberService ms;
+	
+	/**
+	 * 회원가입 페이지 이동
+	 * @return "member/signin"
+	 */
+	@GetMapping("signin")
+	public String signin() {
+		return "member/signin";
+	}
+}

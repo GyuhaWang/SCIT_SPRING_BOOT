@@ -1,0 +1,146 @@
+package net.dsa.web3.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import net.dsa.web3.dto.MemberDTO;
+import net.dsa.web3.service.MemberService;
+
+@Controller
+@Slf4j
+@RequestMapping("member")
+@RequiredArgsConstructor
+public class MemberController {
+	
+	private final MemberService  ms;
+	/**
+	 * 회원가입 페이지 이동
+	 * @return "member/join";
+	 * */
+	@GetMapping("join")
+	public String join () {
+		return "member/join";
+	}
+	/**
+	 * 업데이트 폼 페이지 이동
+	 * @return "member/updateForm";
+	 * */
+	@GetMapping("updateForm")
+	public String updateForm (HttpSession session, Model model) {
+		MemberDTO userInfo = (MemberDTO) session.getAttribute("user_session");
+		log.debug("[member updateForm] user session info:{}",userInfo);
+		model.addAttribute("user",userInfo);
+		return "member/updateForm";
+	}
+	/**
+	 * 로그인 페이지 이동
+	 * return loginForm.html
+	 * */
+	@GetMapping("login")
+	public String login () {
+		return "member/login";
+	}
+	/**
+	 * 로그아웃
+	 * */
+	@GetMapping("logout")
+	public String logout (HttpSession session) {
+		session.removeAttribute("user_session");
+		session.invalidate();
+		log.debug("[member logout] user log out");
+		return "redirect:/";
+	}
+	/**
+	 * create user
+	 * @return page: member/create 
+	 * */
+	@GetMapping("create")
+	public String create () {
+		log.debug("[member read] page navigate to read");
+		return "member/create";
+	}
+	/**
+	 * getAllUsers
+	 * @model List<MemberDTO>
+	 * @return page: member/get 
+	 * */
+	@GetMapping("read")
+	public String read (Model model) {
+		// get all user info
+		List<MemberDTO> members = ms.selectAllData();
+		log.debug("[member read] get members,{}",members);
+		model.addAttribute("members",members);
+		log.debug("[member read] page navigate to read");
+		return "member/read";
+	}
+	/**
+	 *updateUser
+	 * @return page: member/update 
+	 * */
+	@GetMapping("update")
+	public String update (MemberDTO member) {
+		try {
+		ms.save(member);
+		log.debug("[member update] member update success");
+		return "redirect:/";
+		}
+		catch(Exception e) {
+			return "member/update";
+		}
+	}
+	/**
+	 * delete user
+	 * @return page: member/delete 
+	 * */
+	@GetMapping("delete")
+	public String delete () {
+		log.debug("[member delete] page navigate to delete");
+		return "member/delete";
+	}
+	/**
+	 * signin
+	 * @param MemberDTO
+	 * @return redirect
+	 * */
+	@PostMapping("join")
+	public String join(MemberDTO member) {
+		log.debug("[member join] form data 확인 {}",member);
+		
+		ms.save(member);
+	
+		return "redirect:/";
+	}
+	
+	/**
+	 * login
+	 * @param id 
+	 * @param pw
+	 * @param HttpSession
+	 * @return redirect main || login
+	 * */
+	@PostMapping("login")
+	public String login(@RequestParam("id")String id,@RequestParam("pw") String pw, HttpSession session) {
+		
+		log.debug("[*post member login] id:{}, pw:{}",id,pw);
+		try {
+		MemberDTO userInfo = ms.login(id,pw);
+		session.setAttribute("user_session", userInfo);
+		log.debug("[*post member login success] userInfo:{}",userInfo);
+		return "redirect:/";
+		}
+		catch(Exception e) {
+			log.debug("[*post member login fail] errorMessage:{}",e.getMessage());
+			return "redirect:/member/login";
+		}
+	}
+	
+}

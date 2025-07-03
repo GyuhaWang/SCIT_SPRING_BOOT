@@ -1,0 +1,17 @@
+package net.dsa.web3.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@Slf4j
+@RequestMapping("basic")
+public class BasicController {
+	
+	@GetMapping("insertData")
+	public String insertData() {
+		log.debug("[controller-insert] insertData 접근");
+	}
+}

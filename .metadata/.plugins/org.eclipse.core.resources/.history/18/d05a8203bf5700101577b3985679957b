@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>[회원가입]</h1>
+	<form>
+		<input id="id" name="id" type="text">
+		<input id="pw" name="pw" type="password">
+		<input id="name" name="name" type="text">
+		<input id="phone" name="phone" type="text">
+		<input id="address" name="address" type="text">
+		<input type = "submit" value="signin">
+	</form>
+</body>
+</html>

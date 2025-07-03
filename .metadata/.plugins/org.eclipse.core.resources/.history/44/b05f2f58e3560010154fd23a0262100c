@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>users</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<style type="text/css">
+ body {
+ margin:0;
+ padding : 0;
+ }
+</style>
+</head>
+<body>
+<div th:replace="~{layout/header :: header}"></div>
+
+<h1>All user Info</h1>
+	<section>
+		<table>
+			<tr>
+				<td>
+				NO.
+				</td>
+				<td>
+				id
+				</td>
+				<td>
+				name
+				</td>
+				<td>
+				phone
+				</td>
+				<td>
+				address
+				</td>
+			</tr>
+			<tr th:each="member,index : ${members}">
+				<td th:text="${index.index}">
+				NO.
+				</td>
+				<td th:text="${member.id}">
+				id
+				</td>
+				<td th:text="${member.name}">
+				name
+				</td>
+				<td th:text="${member.phone}">
+				phone
+				</td>
+				<td th:text="${member.address}">
+				address
+				</td>
+				<td>
+				update
+				</td>
+				<td>
+				delete
+				</td>
+			</tr>
+			
+		</table>
+	</section>
+</body>
+</html>
