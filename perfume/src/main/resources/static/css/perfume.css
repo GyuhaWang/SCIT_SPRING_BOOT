@@ -1,0 +1,82 @@
+@charset "UTF-8";
+   body {	
+   			padding:0;
+   			margin:0;
+  			background-image: url("../image/perfume.png");
+  			background-size: cover;
+  			background-repeat: no-repeat;
+  			background-position: center;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 16px rgba(0,0,0,0.07);
+            padding: 32px 24px;
+            display:flex;
+            flex-direction:column;
+        }
+        form{
+        display:flex;
+        flex-direction:column;
+       
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+        display:flex;
+           
+            padding: 8px 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        .radio-group {
+            display: flex;
+            justify-content:space-around;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .radio-group label {
+        	display:flex;
+        	flex-direction:column;
+        	gap:4px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        button {
+            flex: 1;
+            padding: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .submit-btn {
+            background: #4b89dc;
+        }
+        .result-btn {
+            background: #888;
+        }

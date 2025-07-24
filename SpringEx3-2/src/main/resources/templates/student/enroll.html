@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>enroll</title>
+<script th:src="@{/js/studentForm.js}"></script>
+</head>
+<body>
+<h1>[학생등록]</h1>
+	
+		<table>
+		 <form th:action="@{/student/enroll}" method="post" id="student_form">
+			<tr>
+			<th>이름</th>
+			<td> <input name="name" id="name" type="text" placeholder="3~10자 사이" required></td>
+			</tr>
+			<tr>
+			<th>전공</th>
+			<td> 	
+			<input name="major" id="major" type="text" required></td>
+			</tr>
+			<tr>
+			<th>자바</th>
+			<td>
+			<label for="java">JAVA 등급 선택</label>
+			<select name="java" id="java" required>
+  				<option value="">--선택--</option>
+  				<option value="상">상</option>
+  				<option value="중">중</option>
+  				<option value="하">하</option>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<th>데이터베이스</th>
+			<td>
+			<label for="db">DB 등급 선택</label>
+			<select name="db" id="db" required>
+  				<option value="">--선택--</option>
+  				<option value="상">상</option>
+  				<option value="중">중</option>
+  				<option value="하">하</option>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<th>웹</th>
+			<td>
+			<label for="web">WEB 등급 선택</label>
+			<select name="web" id="web" required>
+  				<option value="">--선택--</option>
+  				<option value="상">상</option>
+  				<option value="중">중</option>
+  				<option value="하">하</option>
+			</select>
+			</td>
+			</tr>
+			
+			<tr>
+  				<td colspan="2" >
+    				<input type="submit" value="등록">
+  				</td>
+			</tr>
+
+			</form>
+		</table>
+	
+</body>
+</html>

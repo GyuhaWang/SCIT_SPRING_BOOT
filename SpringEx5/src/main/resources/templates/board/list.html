@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시판</title>
+</head>
+<body>
+	
+		<h1>[게시판 전체 목록]</h1>
+		
+		<table>
+			<tr>
+				<td th:text="|전체 ${total}|"></td>
+				<td th:text="|페이지 ${total}/6|"></td>
+			</tr>
+			<tr>
+				<td>번호</td>
+				<td>제목</td>
+				<td>작성자</td>
+				<td>조회수</td>
+				<td>작성일</td>
+				
+			</tr>
+			
+			<tr th:if="${lists != null}" th:each="board : ${lists}">
+				<td><a th:href="@{/board/read(id=${board.boardNum})}"  th:text="${board.boardNum}"></a></td>
+				<td th:text="${board.title}">NAME</td>
+				<td th:text="${board.contents}">Email</td>
+				<td th:text="${board.viewCount}">Address</td>
+				<td th:text="${board.createDate}">RoleName</td>
+				
+			</tr>
+			
+			
+		</table>
+	</body>
+</html>

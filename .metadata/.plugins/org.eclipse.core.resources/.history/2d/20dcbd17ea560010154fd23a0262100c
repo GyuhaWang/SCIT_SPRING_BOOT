@@ -1,9 +1,0 @@
-window.onload  = function() {
-	const updateButton = document.querySelector("#update_button");
-	const deleteButton = document.querySelector("#delete_button");
-	
-	updateButton.addEventListener("click",(e)=>{
-		console.log(e)
-	})
-	
-}

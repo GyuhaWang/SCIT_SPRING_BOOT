@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onlead = function(){
+		document.querySelector('#writeForm')
+				.addEventListener('submit',function(e){
+					const title = document.querySelector('#title');
+					const contents = document.querySelector('#contents');
+				});
+		
+		if(title.value.length < 5){
+			alert('제목을 5자 이상 입력하세요.');
+			title.focus();
+			title.select();
+			e.preventDefault()
+		}
+		
+		if(contents.value.length < 5){
+			alert('내용을 5자 이상 입력하세요.');
+			contents.focus();
+			contents.select();
+			e.preventDefault()
+		}
+	}
+</script>
+</head>
+<body>
+	<header>
+		<h1>[글씨기]</h1>
+	</header>
+	<section>
+		<form id="writeForm" th:action="@{/board/write}" method="post" enctype="multipart/form-data">
+			<label>title</label>
+			<input id="title" name="title">
+			<label>contents</label>
+			<input id="contents" name="contents">
+			<label>file</label>
+			<input  name="upload" type="file">
+			<input type="submit" value = "submit">
+		</form>
+	</section>
+</body>
+</html>

@@ -1,5 +1,0 @@
-package net.dsa.web3.repository;
-
-public interface MemberRepository {
-
-}

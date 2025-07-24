@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/guest_book_form.css}">
+<script th:src="@{/js/guest_book_validation.js}"></script>
+</head>
+<body>
+	<form th:action="@{/guest/write}" method="post" id="guest_book_form">
+	   <legend>글쓰기</legend>
+		<label for="name" class="label">이름 <input type="text" name="name" id="name" placeholder="이름을 입력하세요."></label>
+		
+		<label for="password" class="label">비밀번호 <input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요."></label>
+		
+		<label for="content" class="label">내용 <textarea rows="5" name="content" id="content"></textarea></label>
+		
+		<input type="submit" value="저장" id="submit-button">
+	</form>
+</body>
+</html>

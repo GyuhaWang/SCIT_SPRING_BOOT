@@ -4,9 +4,19 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="AuthenticatedUserDetailsService"/>
+			<item value="console"/>
+			<item value="deliveryType"/>
+			<item value="알뜰배"/>
+			<item value="주문확"/>
+			<item value="delivertype"/>
 			<item value="placeholder="/>
 			<item value="place"/>
 			<item value="model"/>
 		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="686"/>
+		<item key="DIALOG_Y_ORIGIN" value="349"/>
 	</section>
 </section>

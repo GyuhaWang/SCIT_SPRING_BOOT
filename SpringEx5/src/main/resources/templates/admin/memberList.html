@@ -1,0 +1,50 @@
+	<!DOCTYPE html>
+	<html xmlns:th="thymeleaf.org"
+		 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<h1>member list</h1>
+		<h1>[회원 목록]</h1>
+		<p sec:authorize="hasRole('ROLE_ADMIN')"><span sec:authentication="name"/>님이 로그인 중</p>
+		<table>
+			
+			<tr>
+				<td>ID</td>
+				<td>NAME</td>
+				<td>Email</td>
+				<td>Phone</td>
+				<td>Address</td>
+				<td>RoleName</td>
+				<td>Enabled</td>
+				<td></td>
+			</tr>
+			<tr th:if="members != null" th:each="member : ${members}">
+				<td th:text="${member.memberId}">ID</td>
+				<td th:text="${member.memberName}">NAME</td>
+				<td th:text="${member.email}">Email</td>
+				<td th:text="${member.phone}">Phone</td>
+				<td th:text="${member.address}">Address</td>
+				<td th:text="${member.rolename}">RoleName</td>
+				<td th:text="${member.enabled}">Enabled</td>
+				<td>
+				<form>
+				</form>
+	
+				<form method="GET" th:action="@{authorize}">
+				  	<input type="hidden" name="id" th:value="${member.memberId}" />
+					<input type="submit" value="권한변경">
+				</form>
+				<form method="GET" th:action="@{status(id=${member.memberId})}">
+					<input type="hidden" name="id" th:value="${member.memberId}" />
+					<input type="submit" th:value="${member.enabled?'비활성화':'활성화'}">
+				</form>
+				
+				</td>
+			</tr>
+			
+		</table>
+	</body>
+	</html>

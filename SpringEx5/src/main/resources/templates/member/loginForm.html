@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header>
+	<h1>[로그인]</h1></header>
+	<section>
+		<form id="loginForm" th:action="@{/member/login}" method="post">
+			<table>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="id" id="id"></td>
+				</tr>
+				<tr>
+					<td>password</td>
+					<td><input type="text" name="password" id="password"></td>
+				</tr>
+					<tr>
+					<td colspan="2">
+					<div th:if="${param.error}">ID 또는 비밀번호가 틀립니다.</div>
+						
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="login"> 
+					</td>
+				</tr>
+			</table>
+		</form>
+	</section>
+</body>
+</html>

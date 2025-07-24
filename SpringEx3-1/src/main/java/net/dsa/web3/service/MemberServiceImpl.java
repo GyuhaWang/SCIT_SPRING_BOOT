@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
 		else {
 //			MemberEntity me = new Memebr
 //			mr.save(null)
-		}
+		
 		}
 		catch(Exception e){
 			throw e;

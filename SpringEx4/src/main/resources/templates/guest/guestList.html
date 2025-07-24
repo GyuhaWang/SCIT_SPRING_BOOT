@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/guest_list.css}">
+<script th:src="@{/js/guest_book_delete.js}"></script>
+<title>guest bool</title>
+</head>
+<body>
+<h3>방명록</h3>
+<section class="grid-container">
+	
+	<div th:if="${guests !=null}"  th:each="guest,index : ${guests}"  class="item">
+		<form th:action="@{/guest/delete(id=${guest.num})}" method="post" id="delete_form">
+		<div class="guest_book">
+		<div class="info">글번호 <span th:text="${guest.num}" class="content"></span> 작성자 <span th:text="${guest.name}" class="content"></span> </div>
+		<div class="info">작성일<time th:datetime="${guest.inputDate}"  th:text=${guest.inputDate} class="content"></time></div>
+		<textarea rows="5" th:text="${guest.message}" readonly></textarea>
+		<input id="pw" type="hidden" th:value="${guest.password}">
+		<input id="password" type="password" name="password" placeholder="비밀번호를 입력해주세요.">
+		<input id="delete_button" type="submit" value="삭제" >
+		</div>
+		</form>
+		
+	</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th = "www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>개인정보 수정</title>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<script>
+
+	window.onload= function(){
+		
+		document.querySelector("#joinForm").addEventListener('submit',validation);
+	}
+	
+	function validation(e){
+	
+		
+		const pw = document.querySelector("#memberPassword")?.value;
+		const pw2 = document.querySelector("#memberPassword2")?.value;
+		const name = document.querySelector("#memberName")?.value;
+	
+		
+	
+	
+		if(pw.length <3 || pw.length >10){
+			alert("비밀번호는  3~10자 이내로 입력하세요.");
+			e.preventDefault();
+			return;
+		}
+		if(pw != pw2){
+			alert("비밀번호가 일치하는지 확인해주세요");
+			e.preventDefault();
+			return;
+		}
+		if(!name){
+			alert("이름을 입력해주세요.");
+			e.preventDefault();
+			return;
+		}
+
+	}
+</script>
+</head>
+<body>
+	<header>
+		<h1>[개인정보 수정]</h1>
+	</header>
+	<section>
+		<form id="joinForm" th:action="@{/member/update}" method="post">
+			<table>
+				<tr>
+				<th>ID</th>
+				<td>
+					<input th:value="${member.memberId}" type="text" name="memberId" id="memberId" 
+					
+					readonly>
+					
+				</td>
+				</tr>
+				<tr>
+					<th>비밀번호</th>
+					<td>
+						<input type="password" name="memberPassword" id="memberPassword" 
+						placeholder="비밀번호 입력">
+						<br/>
+						<input type="password" id="memberPassword2" placeholder="비밀번호 다시 입력">
+					</td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td>
+					<input th:value="${member.memberName}" type = "text" name="memberName" id="memberName" placeholder="이름 입력">
+					</td>
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td>
+					<input th:value="${member.email}" type="text" name="email" id="email" placeholder="이메일 입력">
+					</td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td>
+						<input th:value="${member.phone}" type="text" name="phone" placeholder="전화번호 입력">
+					</td>
+				</tr>
+				<tr>
+					<th>주소</th>
+					<td>
+						<input th:value="${member.address}" type="text" name="address" placeholder="주소 입력" style="width:300px;">
+					</td>
+				</tr>
+			</table>
+			<br/>
+			<button type="submit">수정</button>
+			<button type="reset">다시 쓰기</button>
+		</form>
+	</section>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th:"thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>update</title>
+<script th:src="@{/js/studentForm.js}"></script>
+</head>
+<body>
+<h1> update</h1>
+<table th:if="${student != null}">
+		<form th:action="@{/student/update}" method="post" id="student_form">
+			<input type="hidden" name="studentId" th:value="${student.studentId}">
+			<tr>
+			<th>이름</th>
+			<td> <input name="name" id="name" type="text" placeholder="3~10자 사이" th:value="${student.name}" required></td>
+			</tr>
+			<tr>
+			<th>전공</th>
+			<td> 	
+			<input name="major" id="major" type="text" th:value="${student.major}" required></td>
+			</tr>
+			<tr>
+			<th>자바</th>
+			<td>
+			<label for="java">JAVA 등급 선택</label>
+			<select name="java" id="java" th:value="${student.java}" required >
+  			<option value="" th:selected="${student.java} == null">--선택--</option>
+  			<option value="상" th:selected="${student.java} == '상'">상</option>
+  			<option value="중" th:selected="${student.java} == '중'">중</option>
+  			<option value="하" th:selected="${student.java} == '하'">하</option>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<th>데이터베이스</th>
+			<td>
+			<label for="db">DB 등급 선택</label>
+			<select name="db" id="db" th:value="${student.db}" required>
+  			<option value="" th:selected="${student.db} == null">--선택--</option>
+  			<option value="상" th:selected="${student.db} == '상'">상</option>
+  			<option value="중" th:selected="${student.db} == '중'">중</option>
+  			<option value="하" th:selected="${student.db} == '하'">하</option>
+			</select>
+			</td>
+			</tr>
+			<tr>
+			<th>웹</th>
+			<td>
+			<label for="web">WEB 등급 선택</label>
+			<select name="web" id="web" required>
+  			<option value="" th:selected="${student.web} == null">--선택--</option>
+  			<option value="상" th:selected="${student.web} == '상'">상</option>
+  			<option value="중" th:selected="${student.web} == '중'">중</option>
+  			<option value="하" th:selected="${student.web} == '하'">하</option>
+			</select>
+			</td>
+			</tr>
+			
+			<tr>
+  				<td colspan="2" >
+    				<input type="submit" value="등록">
+  				</td>
+			</tr>
+
+			</form>
+		</table>
+</body>
+</html>

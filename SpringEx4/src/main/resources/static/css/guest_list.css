@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; 
+  padding: 20px;
+}
+
+.item {
+  background-color: #eee;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+}
+.guest_book{
+	display:flex;
+	flex-direction:column;
+	gap:8px;
+	font-size:12px;
+	color:grey;
+}
+.info {
+	display: flex;
+    justify-content: space-between;
+}
+.content{
+	color:black
+}
+#delete_button{
+	padding:12px 
+}
+#password {
+	padding:4px
+}
+textarea{
+	resize:none;
+	width:100%;
+	outline: none;    
+  	border: none;   
+  	padding:4px
+}
+textarea:focus {
+  outline: none;    
+  border: none;     
+}

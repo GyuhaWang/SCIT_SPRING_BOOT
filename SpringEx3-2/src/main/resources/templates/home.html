@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>학생 정보</title>
+<script>
+function deleteStudent(param){
+	console.log(param);
+	let result = confirm(`${param}을 삭제하시겠습니까?`);
+	if(result){
+		location.href=`student/delete?id=${param}`;
+	}
+}
+function updateStudent(param){
+	console.log(param);
+	location.href=`student/update?id=${param}`;
+	
+}
+</script>
+</head>
+<body>
+	<header><a th:href="@{/student/enroll}">학생정보 등록</a></header>
+	<h1>[학생 목록]</h1>
+	<table>
+		<tr>
+			<th>학번</th>
+			<th>이름</th>
+			<th>전공</th>
+			<th>이해도</th>
+			<th>etc</th>
+		</tr>
+		<tr th:if="${students != null}" th:each="student,index : ${students}">
+			<th th:text="${student.studentId}">학번</th>
+			<th><a th:text="${student.name}" th:href="@{/student/select(id=${student.studentId})}"></a></th>
+			<th th:text="${student.major}">전공</th>
+			<th>
+			
+				<p th:text="|JAVA: ${student.java}|"></p>
+				<p th:text="|DB: ${student.db}|"></p>
+				<p th:text="|WEB: ${student.web}|"></p>
+			
+			</th>
+			<th>
+			<input type="button" value="수정" id="updateButton"  th:attr="data-tid=${student.studentId}"
+					th:onclick="updateStudent(this.getAttribute('data-tid'))">
+			<input type="button" value="삭제" id="deleteButton" th:attr="data-tid=${student.studentId}"
+					th:onclick="deleteStudent(this.getAttribute('data-tid'))">
+			</th>
+		</tr>
+	</table>
+</body>
+</html>
